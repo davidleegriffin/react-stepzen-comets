@@ -9,7 +9,5 @@ type User {
 
 type Query {
   getUsers: [User]
-    @rest(
-      endpoint:"https://jsonplaceholder.typicode.com/users"
-    )
+    @rest(endpoint: "https://jsonplaceholder.typicode.com/users")
 }

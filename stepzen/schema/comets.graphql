@@ -1,0 +1,25 @@
+type Comets {
+  count: String
+  source: String
+  version: String
+}
+
+type Fields {
+  fields: String
+}
+
+type Query {
+  getComets: [Comets]
+    @rest(
+      setters: [
+        { field: "source", path: "signature.source" }
+        { field: "version", path: "signature.version" }
+      ]
+      endpoint: "https://ssd-api.jpl.nasa.gov/fireball.api"
+    )
+  getCometsData: [Fields]
+    @rest(
+      resultroot: "fields[]"
+      endpoint: "https://ssd-api.jpl.nasa.gov/fireball.api"
+    )
+}

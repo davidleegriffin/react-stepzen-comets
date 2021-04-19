@@ -4,6 +4,8 @@ import { ApolloProvider } from "@apollo/react-hooks"
 import { client } from "./utils/client"
 import HomePage from "./pages/HomePage"
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 render(
   <React.StrictMode>
     <ApolloProvider client={client}>

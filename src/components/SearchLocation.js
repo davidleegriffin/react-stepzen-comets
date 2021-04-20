@@ -10,7 +10,6 @@ import { GET_LOCATION_QUERY } from "../queries/getLocation"
 
 const {
   REACT_APP_GOOGLE_MAPS_API_KEY,
-  REACT_APP_STEPZEN_API_KEY
 } = process.env
 
 export default function SearchLocation() {
@@ -18,11 +17,10 @@ export default function SearchLocation() {
 
   const search = (e) => {
     e.preventDefault()
-    console.log(REACT_APP_GOOGLE_MAPS_API_KEY)
     const sendAddress = addressFormatter(location)
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sendAddress}&key=${REACT_APP_GOOGLE_MAPS_API_KEY}`)
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => console.log(data['results'][0]['geometry']['location']))
   }
 
   const addressFormatter = (address) => {
@@ -47,11 +45,7 @@ export default function SearchLocation() {
             type="input"
             placeholder="Address"
             value={location}
-            onChange={(e) => {
-              setLocation(e.target.value)
-              console.log(e.target.value)
-            }
-            }
+            onChange={(e) => setLocation(e.target.value)}
           />
       </Form.Group>
         <Button onClick={search} variant="primary" type="submit">

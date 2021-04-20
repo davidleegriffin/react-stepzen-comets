@@ -8,7 +8,7 @@ type Query {
     @rest(
       setters: [
         { field: "lat", path: "geometry.location.lat" }
-        { field: "lng", path: "gemoetry.location.lng" }
+        { field: "lng", path: "geometry.location.lng" }
       ]
       endpoint: "https://ssd-api.jpl.nasa.gov/fireball.api"
     )

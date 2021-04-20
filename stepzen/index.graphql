@@ -1,7 +1,8 @@
 schema
   @sdl(
     #files: ["schema/users.graphql"]
-    files: ["schema/comets.graphql"]
+    comets: ["schema/comets.graphql"]
+    location: ["schema/location.graphql"]
   ) {
   query: Query
 }

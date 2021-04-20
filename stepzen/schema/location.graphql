@@ -1,0 +1,15 @@
+type Location {
+  lat: String
+  lng: String
+}
+
+type Query {
+  getLocation: [Location]
+    @rest(
+      setters: [
+        { field: "lat", path: "geometry.location.lat" }
+        { field: "lng", path: "gemoetry.location.lng" }
+      ]
+      endpoint: "https://ssd-api.jpl.nasa.gov/fireball.api"
+    )
+}

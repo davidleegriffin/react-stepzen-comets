@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import SearchLocation from "../components/SearchLocation"
+import Comets from '../components/Comets'
 import {
   Form,
   Button,
@@ -15,6 +16,7 @@ export default function HomePage() {
   return (
     <>
       <h1>StepZen React Tutorial</h1>
+      <Comets />
       <SearchLocation />
     </>
   )

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {
   Form,
   Button,
@@ -8,14 +8,11 @@ import {
 import { useQuery } from "@apollo/react-hooks"
 import { GET_LOCATION_QUERY } from "../queries/getLocation"
 
-const {
-  REACT_APP_GOOGLE_MAPS_API_KEY,
-} = process.env
-
 export default function SearchLocation() {
 
   const [onSubmit, setOnSubmit] = useState(true)
   const [sendAddress, setSendAddress] = useState('')
+  const [currentLocation, setCurrentLocation] = useState({lat: '', lng: ''})
 
   const {
     data,
@@ -26,10 +23,15 @@ export default function SearchLocation() {
     skip: onSubmit
   });
 
+  useEffect(() => {
+    if (loading === false && data) {
+      console.log(data.getLocation)
+      setCurrentLocation((state) => data.getLocation)
+      setOnSubmit(true)
+    }
+  }, [loading, data])
+
   if (error) return <p>{error.message}</p>
-  if (data) {
-    console.log(data)
-  }
 
   const search = (e) => {
     e.preventDefault()

@@ -23,13 +23,13 @@ export default function Comets() {
     <>
       <h2>Comets</h2>
       
-      {comets.map(comet => (
+      {/* {comets.map(comet => (
         <ul key={comet.date}>
           <li>
             Lat: {comet.lat}, Lon: {comet.lon}
           </li>
         </ul>
-      ))}
+      ))} */}
     </>
   )
 }

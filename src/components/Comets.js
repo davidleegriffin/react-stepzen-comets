@@ -3,18 +3,24 @@ import { GET_COMETS_QUERY } from "../queries/getComets.js"
 
 export default function Comets() {
   const {
-    root,
+    data,
     loading,
     error
   } = useQuery(GET_COMETS_QUERY)
 
-  const comets = root?.getComets
-  console.log(root?.getComets);
+  console.log(data);
   
   if (loading) return <p>Almost there...</p>
+  if (!data) return null
+  if (data) {const comets = data.comets}
+
   if (error) return <p>{error.message}</p>
   
+  if (data !== undefined) {
+    const comets = data.comets
+
   return (
+
     <>
       <h2>Comets</h2>
       
@@ -27,4 +33,5 @@ export default function Comets() {
       ))}
     </>
   )
+}
 }

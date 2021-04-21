@@ -12,6 +12,6 @@ type Comets {
 type Query {
   comets: [Comets]
     @rest(
-      endpoint: "https://us-central1-stepzen-web-staging.cloudfunctions.net/keyArraytoValueArray/?root=root.data&fields=date,energy,impactE,lat,latDir,lon,lonDir,alt,vel&url=https://ssd-api.jpl.nasa.gov/fireball.api;"
+      endpoint: "https://us-central1-stepzen-web-staging.cloudfunctions.net/keyArraytoValueArray/?root=root.data&fields=date,energy,impactE,lat,latDir,lon,lonDir,alt,vel&url=https://ssd-api.jpl.nasa.gov/fireball.api?limit=10;"
     )
 }

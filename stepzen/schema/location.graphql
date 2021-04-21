@@ -4,12 +4,13 @@ type Location {
 }
 
 type Query {
-  getLocation: [Location]
+  getLocation(sendAddress: String!): Location
     @rest(
       setters: [
-        { field: "lat", path: "geometry.location.lat" }
-        { field: "lng", path: "geometry.location.lng" }
+        { field: "lat", path: "results[].geometry.location.lat" }
+        { field: "lng", path: "results[].geometry.location.lng"}
       ]
-      endpoint: "https://ssd-api.jpl.nasa.gov/fireball.api"
+      endpoint: "https://maps.googleapis.com/maps/api/geocode/json?address=$sendAddress&key=$KEY"
+      configuration: "google_config"
     )
 }

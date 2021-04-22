@@ -49,7 +49,7 @@ A display of various routes taken while navigating site
 ### [Conclusion && Next Steps]:
 Things learned while we worked on react-stepzen-comets:
 ```
-coming soon
+fix UX/UI on homepage following kanban guide
 ```
 
 

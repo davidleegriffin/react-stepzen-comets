@@ -154,7 +154,7 @@ export default function SearchLocation({ comets }) {
       </Form>
       {isLoaded && averageVelocity ? (
         <>
-          <Card style={cardStyle}>
+          <Card style={cardStyle} className="comet__card">
             <Card.Header>
               PHEW! What a close call!
             </Card.Header>
@@ -228,12 +228,9 @@ export default function SearchLocation({ comets }) {
               </OverlayTrigger>
             </Card.Body>
           </Card>
-          <Button onClick={activateTheComet}>Activate Comet</Button>
+          <Button className="comet__button--card" onClick={activateTheComet}>Activate Comet</Button>
         </>
       ) : null}
-      <a href="https://icons8.com/icon/Ybuo24ayiV2p/comet">
-        Comet icon by Icons8
-      </a>
     </Container>
   );
 }

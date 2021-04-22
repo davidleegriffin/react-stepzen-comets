@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useQuery } from "@apollo/react-hooks"
 import { GET_COMETS_QUERY } from "../queries/getComets.js"
+import './Comets.css'
 
 export default function Comets() {
   const [comets, setComets] = useState([])
@@ -16,7 +17,7 @@ export default function Comets() {
     }
   }, [loading, data])
   
-  if (loading) return <p>Almost there...</p>
+  if (loading) return <div className="comets__loading--image"><p className="comets__loading--text">Almost there...</p></div>
   if (error) return <p>{error.message}</p>
 
   return(

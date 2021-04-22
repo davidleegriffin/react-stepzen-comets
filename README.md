@@ -35,11 +35,12 @@ REACT_APP_STEPZEN_API_KEY=YOUR_KEY_HERE
 REACT_APP_STEPZEN_ENDPOINT=YOUR_ENDPOINT_HERE
 ```
 
-Start the development server in a different terminal from the stepzen start command earlier, on `localhost:3000`.
+Start the development server in a different terminal from the stepzen start but from the same root directory, it will serve on `localhost:3000`.
 
 ```
 npm start
 ```
+
 ### [Conclusion && Next Steps]:
 Things learned while we worked on react-stepzen-comets:
 

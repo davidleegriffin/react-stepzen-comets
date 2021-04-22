@@ -12,12 +12,6 @@ git clone https://github.com/davidleegriffin/react-stepzen-comets.git
 cd react-stepzen-comets && npm i
 ```
 
-### Create `.env` file
-
-```
-touch .env
-```
-
 ### Deploy API
 
 The `stepzen start` command uploads and deploys your API automatically.
@@ -25,9 +19,15 @@ The `stepzen start` command uploads and deploys your API automatically.
 ```bash
 stepzen start
 ```
+This also deployed our API to `https://username.stepzen.net/react-stepzen-comets/users/__graphql`. 
 
 
-This also deployed our API to `https://username.stepzen.net/react-stepzen-comets/users/__graphql`. Fill in your username and set the URL to the `REACT_APP_STEPZEN_ENDPOINT` environment variable. Include your StepZen API key for the `REACT_APP_STEPZEN_API_KEY` environment variable.
+### Create `.env` file
+
+```
+touch .env
+```
+Fill in your username and set the URL to the `REACT_APP_STEPZEN_ENDPOINT` environment variable. Include your StepZen API key for the `REACT_APP_STEPZEN_API_KEY` environment variable.
 
 ```
 REACT_APP_STEPZEN_API_KEY=YOUR_KEY_HERE

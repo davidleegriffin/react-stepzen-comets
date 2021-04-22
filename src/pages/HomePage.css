@@ -33,7 +33,7 @@ body{
   text-align: center;
   background: rgb(255, 217, 160);
   background: linear-gradient( left, #00ffff 0%, #97fba0 25%, #97b1fb 50%, #00ffff 100%) repeat;
-  -webkit-background-clip: text;
+  background-clip: text;
   -ms-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;

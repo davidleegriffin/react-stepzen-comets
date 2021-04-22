@@ -181,7 +181,7 @@ export default function SearchLocation({ comets }) {
       </Form>
       {isLoaded && averageVelocity ? (
         <>
-          <Card style={cardStyle} className="comet__card cards">
+          <Card bg='warning' style={cardStyle} className="comet__card cards">
             <Card.Header>PHEW! What a close call!</Card.Header>
             <LoadScript
               googleMapsApiKey={
@@ -209,7 +209,7 @@ export default function SearchLocation({ comets }) {
               </GoogleMap>
             </LoadScript>
           </Card>
-          <Card style={card2Style} className="cards">
+          <Card bg='warning' style={card2Style} className="cards">
             <Card.Header>
               Compare this comets speed to the fastest man alive and
               the fastest car!

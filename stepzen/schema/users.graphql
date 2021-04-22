@@ -10,4 +10,8 @@ type User {
 type Query {
   getUsers: [User]
     @rest(endpoint: "https://jsonplaceholder.typicode.com/users")
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7383d9bc815f6263e2780290bba57fc1af6573f0

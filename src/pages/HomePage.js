@@ -8,16 +8,13 @@ import {
 } from 'react-bootstrap'
 
 export default function HomePage() {
-  const [location, setLocation] = useState('')
-  const search = (e) => {
-    e.preventDefault()
+  const [comets, setComets] = useState([])
 
-  }
   return (
     <>
       <h1>StepZen React Tutorial</h1>
-      <Comets />
-      <SearchLocation />
+      <Comets comets={comets} setComets={setComets}/>
+      <SearchLocation comets={comets} />
     </>
   )
 }

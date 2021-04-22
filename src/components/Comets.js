@@ -3,8 +3,8 @@ import { useQuery } from "@apollo/react-hooks"
 import { GET_COMETS_QUERY } from "../queries/getComets.js"
 import './Comets.css'
 
-export default function Comets() {
-  const [comets, setComets] = useState([])
+export default function Comets({comets, setComets}) {
+  // const [comets, setComets] = useState([])
   const {
     data,
     loading,
@@ -13,7 +13,8 @@ export default function Comets() {
 
   useEffect(() => {
     if (loading === false && data) {
-      setComets([...comets, ...data.comets])
+      setComets(state => [...comets, ...data.comets])
+      console.log(comets)
     }
   }, [loading, data])
   

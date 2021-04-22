@@ -41,6 +41,11 @@ Start the development server in a different terminal from the stepzen start but 
 npm start
 ```
 
+### [Example of Site Navigation]
+A display of various routes taken while navigating site
+![Comets]()
+
+
 ### [Conclusion && Next Steps]:
 Things learned while we worked on react-stepzen-comets:
 

@@ -73,7 +73,7 @@ export default function SearchLocation({comets}) {
       }
     }
     // console.log(dist)
-    setClosestComet(closest)
+    setClosestComet(state => closest)
     console.log(closest)
   }
 

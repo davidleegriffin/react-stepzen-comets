@@ -127,6 +127,7 @@ export default function SearchLocation({ comets }) {
     }
   };
 
+<<<<<<< HEAD
   if (loading)
     return (
       <div className="comets__loading--image">
@@ -134,6 +135,15 @@ export default function SearchLocation({ comets }) {
       </div>
     );
 
+=======
+  // if (loading)
+  //   return (
+  //     <div className="comets__loading--image">
+  //       <p className="comets__loading--text">Almost there...</p>
+  //     </div>
+  //   );
+  
+>>>>>>> fc9fc4493040e74adbdce69b9f6b1aa8a2cb36aa
   const activateTheComet = () => {
     cometRef.current.style.animationDuration = `${
       closestComet.vel

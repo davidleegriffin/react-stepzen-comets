@@ -15,6 +15,8 @@ export default function SearchLocation({ comets }) {
     lng: '',
   });
   const [closestComet, setClosestComet] = useState(null);
+  const [averageVelocity, setAverageVelocity] = useState(0)
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const containerStyle = {
     width: '508px',
@@ -40,9 +42,16 @@ const mapOptions = {
       console.log(data.getLocation);
       setCurrentLocation((state) => data.getLocation);
       setOnSubmit(true);
-      findClosestComet();
     }
   }, [loading, data]);
+
+  useEffect(() => {
+    if (onSubmit) {
+      findClosestComet();
+    }
+  }, [onSubmit]);
+
+
 
   if (error) return <p>{error.message}</p>;
 
@@ -69,7 +78,14 @@ const mapOptions = {
   const findClosestComet = () => {
     let closest = null;
     let dist = Infinity;
+    let totalVelocity = 0
+    let count = 0
     for (let i = 0; i < comets.length; i++) {
+      if (comets[i].vel && comets[i].vel !== '-') {
+        totalVelocity += Number(comets[i].vel)
+        count++
+        // console.log(comets[i].vel)
+      }
       if (!comets[i].lat || !comets[i].lon) continue;
       let currDistance = distance(
         currentLocation.lat,
@@ -82,7 +98,12 @@ const mapOptions = {
         closest = comets[i];
       }
     }
-    setClosestComet((state) => closest);
+    setClosestComet(closest);
+    let final = totalVelocity / count
+    console.log(final)
+    // console.log(comets.length)
+    setAverageVelocity(final)
+    setIsLoaded(true)
     console.log(closest);
   };
 
@@ -125,13 +146,13 @@ const mapOptions = {
           Submit
         </Button>
       </Form>
-      {closestComet ? (
+      {isLoaded && averageVelocity? (
         <Card style={cardStyle}>
-          <Card.Header>PHEW! What a close call!</Card.Header>
+          <Card.Header>PHEW! What a close call! {averageVelocity}</Card.Header>
           <Card.Body></Card.Body>
           <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
             <GoogleMap
-              options={mapOptions}
+              // options={mapOptions}
               mapContainerStyle={containerStyle}
               center={{
                 lat: +closestComet.lat,

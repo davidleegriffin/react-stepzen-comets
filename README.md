@@ -1,5 +1,5 @@
 # React StepZen Comets
-*By [Dale Sakamoto](https://github.com/DaleTsakamoto) [David Griffin](https://github.com/davidleegriffin)*
+*By [Dale Sakamoto](https://github.com/DaleTsakamoto) and [David Griffin](https://github.com/davidleegriffin)*
 
 ## Overview
 Using a Stepzen/Graphql backend to supply a react frontend using react hooks to store an object of known comets and likely impact points on planet earth. the frontend then queries the user for a location and an algorythm determines the closest location impact and the responsible comet. data pulled from NASA JPL API through Stepzen and into the waiting arms of our front end state.

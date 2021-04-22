@@ -24,6 +24,7 @@ export default function Comets({comets, setComets}) {
 
   return(
     <>
+      <p> </p>
     </>
   )
 }

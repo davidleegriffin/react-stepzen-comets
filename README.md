@@ -43,7 +43,7 @@ npm start
 
 ### [Example of Site Navigation]
 A display of various routes taken while navigating site
-![Comets]()
+![Comets](./comets-nav.gif)
 
 
 ### [Conclusion && Next Steps]:

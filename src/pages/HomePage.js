@@ -12,7 +12,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>StepZen React Tutorial</h1>
+      <h1> React StepZen Comets</h1>
       <Comets comets={comets} setComets={setComets}/>
       <SearchLocation comets={comets} />
     </>

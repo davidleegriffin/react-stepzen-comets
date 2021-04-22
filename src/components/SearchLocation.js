@@ -97,6 +97,8 @@ export default function SearchLocation({comets}) {
       return dist;
     }
   }
+
+  if (loading) return <div className="comets__loading--image"><p className="comets__loading--text">Almost there...</p></div>
   
   return (
     <Container>

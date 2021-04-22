@@ -19,6 +19,7 @@ export default function Comets({comets, setComets}) {
   }, [loading, data])
   
   if (loading) return <div className="comets__loading--image"><p className="comets__loading--text">Almost there...</p></div>
+
   if (error) return <p>{error.message}</p>
 
   return(

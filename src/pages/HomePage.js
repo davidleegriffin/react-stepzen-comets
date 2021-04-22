@@ -10,7 +10,10 @@ export default function HomePage() {
 
   return (
     <>
-      <h1 className='fireballs-header'>Fireballs</h1>
+      <div className='fireballs-header'>
+        <img src={'./images/comet_crash.gif'}/>
+        <h1>Fireballs</h1>
+      </div>
       <Comets comets={comets} setComets={setComets}/>
       <SearchLocation comets={comets} />
       <Footer />

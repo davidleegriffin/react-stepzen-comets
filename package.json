@@ -30,6 +30,7 @@
   "description": "How to use Apollo Client to Connect a React Frontend to a GraphQL API",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
+    "@react-google-maps/api": "^2.1.1",
     "apollo-boost": "^0.4.9",
     "bootstrap": "^4.6.0",
     "graphql": "^15.5.0",

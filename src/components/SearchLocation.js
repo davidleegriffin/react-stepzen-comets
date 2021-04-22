@@ -1,81 +1,90 @@
-import {useState, useEffect} from 'react'
-import {
-  Form,
-  Button,
-  Container,
-  Card
-} from 'react-bootstrap'
+import { useState, useEffect } from 'react';
+import { Form, Button, Container, Card } from 'react-bootstrap';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-import { useQuery } from "@apollo/react-hooks"
-import { GET_LOCATION_QUERY } from "../queries/getLocation"
+import { useQuery } from '@apollo/react-hooks';
+import { GET_LOCATION_QUERY } from '../queries/getLocation';
 
-export default function SearchLocation({comets}) {
+import distance from '../utils/mathEquation'
 
-  const [onSubmit, setOnSubmit] = useState(true)
-  const [sendAddress, setSendAddress] = useState('')
-  const [currentLocation, setCurrentLocation] = useState({ lat: '', lng: '' })
-  const [closestComet, setClosestComet] = useState(null)
+export default function SearchLocation({ comets }) {
+  const [onSubmit, setOnSubmit] = useState(true);
+  const [sendAddress, setSendAddress] = useState('');
+  const [currentLocation, setCurrentLocation] = useState({
+    lat: '',
+    lng: '',
+  });
+  const [closestComet, setClosestComet] = useState(null);
 
-  const {
-    data,
-    loading,
-    error
-  } = useQuery(GET_LOCATION_QUERY, {
+  const containerStyle = {
+    width: '508px',
+    height: '300px'
+  };
+
+  const cardStyle = {
+    width: '508px',
+    height: '400px'
+  };
+
+const mapOptions = {
+    disableDefaultUI: true
+  }
+
+  const { data, loading, error } = useQuery(GET_LOCATION_QUERY, {
     variables: { sendAddress },
-    skip: onSubmit
+    skip: onSubmit,
   });
 
   useEffect(() => {
     if (loading === false && data) {
-      console.log(data.getLocation)
-      setCurrentLocation((state) => data.getLocation)
-      setOnSubmit(true)
-      findClosestComet()
+      console.log(data.getLocation);
+      setCurrentLocation((state) => data.getLocation);
+      setOnSubmit(true);
+      findClosestComet();
     }
-  }, [loading, data])
+  }, [loading, data]);
 
-  if (error) return <p>{error.message}</p>
+  if (error) return <p>{error.message}</p>;
 
   const search = (e) => {
-    e.preventDefault()
-    const loc = addressFormatter(sendAddress)
-    setSendAddress((state) => loc)
-    setOnSubmit(false)
-    // fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sendAddress}&key=${REACT_APP_GOOGLE_MAPS_API_KEY}`)
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data['results'][0]['geometry']['location']))
-  }
+    e.preventDefault();
+    const loc = addressFormatter(sendAddress);
+    setSendAddress((state) => loc);
+    setOnSubmit(false);
+  };
 
   const addressFormatter = (address) => {
-    let newAddress = ''
+    let newAddress = '';
     for (let i = 0; i < address.length; i++) {
       if (address[i] === ' ') {
-        newAddress += '+'
+        newAddress += '+';
       } else {
-        newAddress += address[i]
+        newAddress += address[i];
       }
     }
-    console.log(newAddress)
-    return newAddress
-  }
+    console.log(newAddress);
+    return newAddress;
+  };
 
   const findClosestComet = () => {
-    //comets[0].lat and comets[0].lon
-    let closest = null
-    let dist = Infinity
+    let closest = null;
+    let dist = Infinity;
     for (let i = 0; i < comets.length; i++) {
       if (!comets[i].lat || !comets[i].lon) continue;
-      let currDistance = distance(currentLocation.lat, currentLocation.lng, comets[i].lat, comets[i].lon)
-      // console.log(currDistance)
-      if ( currDistance < dist) {
-        dist = currDistance
-        closest = comets[i]
+      let currDistance = distance(
+        currentLocation.lat,
+        currentLocation.lng,
+        comets[i].lat,
+        comets[i].lon,
+      );
+      if (currDistance < dist) {
+        dist = currDistance;
+        closest = comets[i];
       }
     }
-    // console.log(dist)
-    setClosestComet(state => closest)
-    console.log(closest)
-  }
+    setClosestComet((state) => closest);
+    console.log(closest);
+  };
 
   function distance(lat1, lon1, lat2, lon2) {
     if ((lat1 === lat2) && (lon1 === lon2)) {
@@ -105,25 +114,43 @@ export default function SearchLocation({comets}) {
       <Form>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Enter a location below</Form.Label>
-            <Form.Control
-              type="input"
-              placeholder="Address"
-              value={sendAddress}
-              onChange={(e) => setSendAddress(e.target.value)}
-            />
+          <Form.Control
+            type="input"
+            placeholder="Address"
+            value={sendAddress}
+            onChange={(e) => setSendAddress(e.target.value)}
+          />
         </Form.Group>
         <Button onClick={search} variant="primary" type="submit">
-        Submit
-      </Button>
+          Submit
+        </Button>
       </Form>
-      {closestComet
-        ?
-        <Card>
-          <Card.Body>Lat: {closestComet.lat}</Card.Body>
+      {closestComet ? (
+        <Card style={cardStyle}>
+          <Card.Header>PHEW! What a close call!</Card.Header>
+          <Card.Body></Card.Body>
+          <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+            <GoogleMap
+              options={mapOptions}
+              mapContainerStyle={containerStyle}
+              center={{
+                lat: +closestComet.lat,
+                lng: +closestComet.lon,
+              }}
+              zoom={10}
+            >
+              <Marker
+                icon={"https://img.icons8.com/offices/30/000000/comet.png"}
+                position={{
+                  lat: +closestComet.lat,
+                  lng: +closestComet.lon,
+                }}
+              />
+            </GoogleMap>
+          </LoadScript>
         </Card>
-        :
-        null
-      }
+      ) : null}
+      <a href="https://icons8.com/icon/Ybuo24ayiV2p/comet">Comet icon by Icons8</a>
     </Container>
-  )
+  );
 }

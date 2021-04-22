@@ -24,15 +24,6 @@ export default function Comets({comets, setComets}) {
 
   return(
     <>
-      <h2>Please Enter a Location to See Nearest Possible Comet Impact</h2>
-      
-      {/* {comets.map(comet => (
-        <ul key={comet.date}>
-          <li>
-            Lat: {comet.lat}, Lon: {comet.lon}
-          </li>
-        </ul>
-      ))} */}
     </>
   )
 }

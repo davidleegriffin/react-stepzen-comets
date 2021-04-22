@@ -148,7 +148,7 @@ export default function SearchLocation({ comets }) {
             onChange={(e) => setSendAddress(e.target.value)}
           />
         </Form.Group>
-        <Button onClick={search} variant="primary" type="submit">
+        <Button variant="warning" onClick={search} type="submit">
           Submit
         </Button>
       </Form>
@@ -228,7 +228,7 @@ export default function SearchLocation({ comets }) {
               </OverlayTrigger>
             </Card.Body>
           </Card>
-          <Button className="comet__button--card" onClick={activateTheComet}>Activate Comet</Button>
+          <Button variant="warning" className="comet__button--card" onClick={activateTheComet}>Activate Comet</Button>
         </>
       ) : null}
     </Container>

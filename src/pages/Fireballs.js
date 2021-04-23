@@ -5,9 +5,9 @@ import { GET_COMETS_QUERY } from "../queries/getComets.js"
 import SearchLocation from "../components/SearchLocation"
 import Footer from '../components/Footer'
 
-import './HomePage.css'
+import './Fireballs.css'
 
-export default function HomePage() {
+export default function Fireballs() {
   const [comets, setComets] = useState([])
   const {
     data,

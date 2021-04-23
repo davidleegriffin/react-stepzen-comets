@@ -1,15 +1,15 @@
 import {useState, useEffect} from 'react'
 import { useQuery } from "@apollo/react-hooks"
-import { GET_COMETS_QUERY } from "../queries/getComets.js"
-import './Comets.css'
+import { GET_METEORS_QUERY } from "../queries/getMeteors.js"
+import './Meteors.css'
 
-export default function Comets({comets, setComets}) {
+export default function Meteors({comets, setComets}) {
   // const [comets, setComets] = useState([])
   const {
     data,
     loading,
     error
-  } = useQuery(GET_COMETS_QUERY)
+  } = useQuery(GET_METEORS_QUERY)
 
   useEffect(() => {
     if (loading === false && data) {

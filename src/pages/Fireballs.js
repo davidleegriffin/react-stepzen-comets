@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import SearchLocation from "../components/SearchLocation"
-import Comets from '../components/Comets'
+import Meteors from '../components/Meteors'
 import Footer from '../components/Footer'
 
 import './Fireballs.css'
@@ -19,7 +19,7 @@ export default function Fireballs() {
           </div>
       </div>
       </div>
-      <Comets comets={comets} setComets={setComets}/>
+      <Meteors comets={comets} setComets={setComets}/>
       <SearchLocation comets={comets} />
       <Footer />
     </>

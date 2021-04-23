@@ -1,12 +1,30 @@
-import {useState} from 'react'
+import { useState, useEffect } from 'react'
+import { useQuery } from "@apollo/react-hooks"
+import { GET_COMETS_QUERY } from "../queries/getComets.js"
+
 import SearchLocation from "../components/SearchLocation"
-import Comets from '../components/Comets'
 import Footer from '../components/Footer'
 
 import './HomePage.css'
 
 export default function HomePage() {
   const [comets, setComets] = useState([])
+  const {
+    data,
+    loading,
+    error
+  } = useQuery(GET_COMETS_QUERY)
+
+  useEffect(() => {
+    if (loading === false && data) {
+      setComets(state => [...comets, ...data.comets])
+      console.log(comets)
+    }
+  }, [loading, data])
+  
+  if (loading) return <div className="comets__loading--image"><p className="comets__loading--text">Almost there...</p></div>
+
+  if (error) return <p>{error.message}</p>
 
   return (
     <>
@@ -19,7 +37,7 @@ export default function HomePage() {
           </div>
       </div>
       </div>
-      <Comets comets={comets} setComets={setComets}/>
+      {/* <Comets comets={comets} setComets={setComets}/> */}
       <SearchLocation comets={comets} />
       <Footer />
     </>

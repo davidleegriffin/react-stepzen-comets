@@ -50,11 +50,6 @@ body{
   margin-top: -42px;
   margin-bottom: -20px;
   width: 100vw;
-  /* position: absolute; */
-  /* top: 30%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%); */
 }
 
 .head-text-background-color p {
@@ -87,4 +82,12 @@ body{
   100% {
     background-position: -8000px -3000px;
   }
+}
+
+.search-location-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

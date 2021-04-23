@@ -12,11 +12,14 @@ export default function WelcomePage() {
 
   return (
     <>
-      <h1>WELCOME</h1>
-      <NavLink to={{pathname: "/fireballs"}}>
-        <button>HOME</button>
-      {/* <Route path="/home" component={HomePage} /> */}
-      </NavLink>
+        <div className="fireballs__container--main">
+            <h1>WELCOME TO FIREBALLS</h1>
+            <p classname="fireballs__image--example"><img src="./images/fireballs-screen-shot.png" alt="fireballs-screen-shot" width="90%"></img></p>
+            <NavLink to={{pathname: "/fireballs"}}>
+                <button className="fireballs__button--home">CLICK HERE TO START</button>
+            </NavLink>
+            <Footer />
+        </div>
     </>
   )
 }

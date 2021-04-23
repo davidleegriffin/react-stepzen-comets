@@ -1,12 +1,15 @@
 .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 50px;
     margin-bottom: 0px;
-    margin-left: 1px;
+    margin-left: 0px;
     /* background-image: url("https://images.unsplash.com/photo-1594814333947-e7b4e4f5d34d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"); */
     background-color: white;
     position: fixed;
     bottom: 0;
-    width: 105%;
+    width: 120%;
 }
 
 .footer__img__icon {
@@ -21,6 +24,9 @@
 
 
 .footer__grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     display: grid;
     grid-template-columns: 3fr 2.5fr 2.5fr 2.5fr 1fr;
     width: 100%;

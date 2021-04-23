@@ -3,9 +3,9 @@ import SearchLocation from "../components/SearchLocation"
 import Comets from '../components/Comets'
 import Footer from '../components/Footer'
 
-import './HomePage.css'
+import './Fireballs.css'
 
-export default function HomePage() {
+export default function Fireballs() {
   const [comets, setComets] = useState([])
 
   return (

@@ -1,17 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, setState} from 'react'
+import { NavLink, Link, Route, Redirect, useHistory, Switch } from 'react-router-dom';
 import SearchLocation from "../components/SearchLocation"
 import Comets from '../components/Comets'
 import Footer from '../components/Footer'
-import HomePage from './HomePage'
-// import './HomePage.css'
+import Fireballs from './Fireballs'
+import './WelcomePage.css'
 
 export default function WelcomePage() {
 //   const [comets, setComets] = useState([])
 
+
   return (
     <>
       <h1>WELCOME</h1>
-      <navlink to="/HomePage">Home Page</navlink>
+      <NavLink to={{pathname: "/fireballs"}}>
+        <button>HOME</button>
+      {/* <Route path="/home" component={HomePage} /> */}
+      </NavLink>
     </>
   )
 }

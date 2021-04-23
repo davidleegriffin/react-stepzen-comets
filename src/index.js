@@ -13,7 +13,7 @@ render(
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Switch>
-          <Route path="/home" component={WelcomePage} />
+          <Route exact path="/" component={WelcomePage} />
           <Route exact path="/fireballs" component={Fireballs} />
         </Switch>
       </BrowserRouter>

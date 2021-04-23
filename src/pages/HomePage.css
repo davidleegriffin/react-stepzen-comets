@@ -1,5 +1,5 @@
 body{
-  background-image: url("https://i.ibb.co/sjG5zzx/svg-5.png");
+  background-image: url("https://images.unsplash.com/photo-1594814333947-e7b4e4f5d34d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80");
   background-position-x: center;
   background-position-y: bottom;
   background-size: cover;
@@ -12,12 +12,19 @@ body{
 .fireballs-header{
   width: 100vw;
   text-align: center;
+  position: relative;
+  top: 40px;
+  margin-bottom: 100px;
+}
+
+.fireballs-header > img{
+  margin: 90px;
 }
 
 .head-text-container {
   padding: 1vw;
   position: absolute;
-  top: 30%;
+  top: 10%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
@@ -26,7 +33,7 @@ body{
 .head-text-background-color p {
   color: #000;
   font-family: 'montserrat';
-  font-size: 3vw;
+  font-size: 8vw;
   font-weight: bold;
   letter-spacing: 1vw;
   max-width: 700px;

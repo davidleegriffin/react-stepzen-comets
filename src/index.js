@@ -3,13 +3,15 @@ import { render } from "react-dom"
 import { ApolloProvider } from "@apollo/react-hooks"
 import { client } from "./utils/client"
 // import { location } from "./utils/location"
-import HomePage from "./pages/HomePage"
+import HomePage from './pages/HomePage'
+import WelcomePage from "./pages/WelcomePage"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 render(
   <React.StrictMode>
     <ApolloProvider client={client}>
+      <WelcomePage />
       <HomePage />
     </ApolloProvider>
   </React.StrictMode>,

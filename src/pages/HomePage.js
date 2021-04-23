@@ -10,11 +10,12 @@ export default function HomePage() {
 
   return (
     <>
+      
       <div className='fireballs-header'>
         <img src={'./images/comet_crash.gif'} />
         <div class="head-text-container">
           <div class="head-text-background-color">
-            <p>Fireballs</p>
+            <p className="comet__fireballs">Fireballs</p>
           </div>
       </div>
       </div>

@@ -1,9 +1,9 @@
 .comets__loading--image {
     height: 100vmax;
     width: 100%;
-    /* background-repeat: no-repeat; */
+    /* background-repeat: no-repeat;
     background-position: center;
-    background-image: url("https://images.unsplash.com/photo-1594814333947-e7b4e4f5d34d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80");
+    background-image: url("https://images.unsplash.com/photo-1594814333947-e7b4e4f5d34d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"); */
     animation-name: grow-item;
     animation-duration: 2s;
 }

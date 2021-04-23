@@ -10,7 +10,9 @@ body{
 }
 
 .fireballs-header{
+  margin-top: 40px;
   width: 100vw;
+<<<<<<< HEAD
   text-align: center;
   position: relative;
   top: 40px;
@@ -25,18 +27,41 @@ body{
   padding: 1vw;
   position: absolute;
   top: 10%;
+=======
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fireballs-header img{
+  height: 200px;
+  width: 200px;
+}
+
+.head-text-container {
+  /* padding: 1vw; */
+  margin-top: -42px;
+  margin-bottom: -20px;
+  width: 100vw;
+  /* position: absolute; */
+  /* top: 30%;
+>>>>>>> 3dcbb2564b9c78bd12d0a2af00348228ffa0e986
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .head-text-background-color p {
   color: #000;
   font-family: 'montserrat';
+<<<<<<< HEAD
   font-size: 8vw;
+=======
+  font-size: 36px;
+>>>>>>> 3dcbb2564b9c78bd12d0a2af00348228ffa0e986
   font-weight: bold;
   letter-spacing: 1vw;
-  max-width: 700px;
+  /* max-width: 700px; */
   text-align: center;
   background: rgb(255, 217, 160);
   background: linear-gradient( left, #00ffff 0%, #97fba0 25%, #97b1fb 50%, #00ffff 100%) repeat;

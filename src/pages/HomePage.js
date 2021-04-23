@@ -10,7 +10,7 @@ export default function HomePage() {
 
   return (
     <>
-      
+      <img src="./images/starry_sky_background.jpeg" id="background-image" alt="starry sky"></img>
       <div className='fireballs-header'>
         <img src={'./images/comet_crash.gif'} />
         <div class="head-text-container">

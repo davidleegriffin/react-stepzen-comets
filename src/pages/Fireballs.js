@@ -20,12 +20,22 @@ export default function Fireballs() {
   const [closestComet, setClosestComet] = useState(null);
   const [comets, setComets] = useState([]);
   const [averageVelocity, setAverageVelocity] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false)
   const { data, loading, error } = useQuery(GET_METEORS_QUERY);
 
   useEffect(() => {
     if (loading === false && data) {
+      console.log(data.comets)
+      for (let i = 0; i < data.comets.length; i++){
+        if (!data.comets[i].lon && !data.comets[i].lat) {
+          continue
+        } else {
+          data.comets[i].lat = data.comets[i].latDir === "N" ? +data.comets[i].lat : +data.comets[i].lat * -1
+          data.comets[i].lon = data.comets[i].lonDir === "E" ? +data.comets[i].lon : +data.comets[i].lon * -1
+        }
+      }
       setComets((state) => [...comets, ...data.comets]);
-      console.log(data.comets);
+      // console.log(data.comets);
     }
   }, [loading, data]);
 
@@ -101,10 +111,12 @@ export default function Fireballs() {
           setAverageVelocity={setAverageVelocity}
           setClosestComet={setClosestComet}
           comets={comets}
+          setIsLoaded={setIsLoaded}
       />
         <LocationMap
         closestComet={closestComet}
-        averageVelocity={averageVelocity}
+          averageVelocity={averageVelocity}
+          isLoaded={isLoaded}
       />
       <SpeedComparison
         closestComet={closestComet}

@@ -17,7 +17,8 @@ export default function SearchLocation({
   // findClosestComet,
   setAverageVelocity,
   setClosestComet,
-  comets
+  comets,
+  setIsLoaded
 }) {
   const [sendAddress, setSendAddress] = useState('');
 
@@ -28,70 +29,58 @@ export default function SearchLocation({
 
   useEffect(() => {
     if (loading === false && data) {
-      // console.log(data.getLocation);
       setCurrentLocation(data.getLocation);
       setOnSubmit(true);
+      setSendAddress('')
     }
-  }, [loading, data]);
+  }, [data]);
 
 
   useEffect(() => {
     if (currentLocation.lat.length > 0 && currentLocation.lng.length > 0) {
-      console.log(currentLocation)
       findClosestComet();
     }
   }, [currentLocation]);
 
   const findClosestComet = () => {
-    // console.log('RUNNING!')
     let closest = {};
     let dist = Infinity;
     let totalVelocity = 0;
     let count = 0;
-    // console.log(comets)
     for (let i = 0; i < comets.length; i++) {
       if (comets[i].vel && comets[i].vel !== '-') {
         totalVelocity += Number(comets[i].vel);
         count++;
-        // console.log(Number(currentLocation.lat))
-        // console.log(Number(currentLocation.lng))
       }
-      if (!comets[i].lat || !comets[i].lon) continue;
+      if ((comets[i].lat) && (!comets[i].lon)) continue;
 
-      comets[i].lat = comets[i].latDir === "N" ? Number(comets[i].lat) : Number(comets[i].lat * -1)
-      comets[i].lon = comets[i].lonDir === "E" ? Number(comets[i].lon) : Number(comets[i].lon * -1)
       let currDistance = distance(
         Number(currentLocation.lat),
         Number(currentLocation.lng),
         comets[i].lat,
-        comets[i].lon,
+        comets[i].lon
       );
       if (currDistance < dist) {
-        // console.log(dist)
         dist = currDistance;
         closest = comets[i]
       }
-      // console.log(final);
-      // console.log(comets.length)
-      // console.log(closest);
     }
-    console.log(closest)
     let final = totalVelocity / count;
     setAverageVelocity(final);
     setClosestComet(closest)
-    // setCurrentLocation({
-    //   lat: '',
-    //   lng: '',
-    // })
+    setIsLoaded(true)
   };
 
   if (error) return <p>{error.message}</p>;
 
   const search = (e) => {
     e.preventDefault();
-    const loc = addressFormatter(sendAddress);
-    setSendAddress((state) => loc);
-    setOnSubmit(false);
+    setIsLoaded(false)
+    if (sendAddress.length > 0) {
+      const loc = addressFormatter(sendAddress);
+      setSendAddress((state) => loc);
+      setOnSubmit(false);
+    }
   };
 
   const addressFormatter = (address) => {
@@ -103,7 +92,6 @@ export default function SearchLocation({
         newAddress += address[i];
       }
     }
-    // console.log(newAddress);
     return newAddress;
   };
 

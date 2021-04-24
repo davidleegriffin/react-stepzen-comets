@@ -7,7 +7,7 @@ import {
 
 import './LocationMap.css';
 
-export default function LocationMap({ averageVelocity, closestComet }) {
+export default function LocationMap({ averageVelocity, closestComet, isLoaded }) {
 
   const containerStyle = {
     width: '508px',
@@ -29,7 +29,8 @@ export default function LocationMap({ averageVelocity, closestComet }) {
       style={cardStyle}
       className="comet__card cards"
     >
-      {console.log(closestComet)}
+      {isLoaded ? 
+      <>
       <Card.Header>PHEW! What a close call!</Card.Header>
       <LoadScript
         googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
@@ -53,7 +54,11 @@ export default function LocationMap({ averageVelocity, closestComet }) {
             }}
           />
         </GoogleMap>
-      </LoadScript>
+          </LoadScript>
+        </>
+        :
+        <div style={containerStyle}> Map Loading...</div>
+    }
     </Card>
   );
 }

@@ -28,7 +28,7 @@ export default function SpeedComparison({ averageVelocity, closestComet }) {
     cometRef.current.classList.remove('flyingCometAnim');
   };
 
-  return averageVelocity &&(
+  return (
     <>
       <Card bg="warning" style={card2Style} className="cards">
         <Card.Header>

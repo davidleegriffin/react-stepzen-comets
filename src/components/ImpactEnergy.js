@@ -4,6 +4,7 @@ import './ImpactEnergy.css'
 
 export default function ImpactEnergy() {
   return (
+    <Container className="impact-container">
       <Carousel fade >
       <Carousel.Item interval={2000}>
         <div className="carousel-image-1-holder">
@@ -54,5 +55,6 @@ export default function ImpactEnergy() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      </Container>
   );
 }

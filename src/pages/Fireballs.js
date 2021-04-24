@@ -80,16 +80,20 @@ export default function Fireballs() {
           comets={comets}
           setIsLoaded={setIsLoaded}
         />
-        <LocationMap
-          closestComet={closestComet}
-          averageVelocity={averageVelocity}
-          isLoaded={isLoaded}
-        />
-        <SpeedComparison
-          closestComet={closestComet}
-          averageVelocity={averageVelocity}
-        />
-      <ImpactEnergy />
+        {averageVelocity ? (
+          <>
+            <LocationMap
+              closestComet={closestComet}
+              averageVelocity={averageVelocity}
+              isLoaded={isLoaded}
+            />
+            <SpeedComparison
+              closestComet={closestComet}
+              averageVelocity={averageVelocity}
+            />
+            <ImpactEnergy />
+          </>
+        ) : null}
       </Container>
       <Footer />
     </>

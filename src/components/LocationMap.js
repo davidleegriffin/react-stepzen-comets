@@ -23,7 +23,7 @@ export default function LocationMap({ averageVelocity, closestComet, isLoaded })
     disableDefaultUI: true,
   };
 
-  return averageVelocity &&(
+  return (
     <Card
       bg="warning"
       style={cardStyle}

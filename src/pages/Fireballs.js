@@ -25,7 +25,7 @@ export default function Fireballs() {
   useEffect(() => {
     if (loading === false && data) {
       setComets((state) => [...comets, ...data.comets]);
-      console.log(comets);
+      console.log(data.comets);
     }
   }, [loading, data]);
 
@@ -38,36 +38,43 @@ export default function Fireballs() {
 
   if (error) return <p>{error.message}</p>;
 
-  const findClosestComet = () => {
-    let closest = null;
-    let dist = Infinity;
-    let totalVelocity = 0;
-    let count = 0;
-    for (let i = 0; i < comets.length; i++) {
-      if (comets[i].vel && comets[i].vel !== '-') {
-        totalVelocity += Number(comets[i].vel);
-        count++;
-        // console.log(comets[i].vel)
-      }
-      if (!comets[i].lat || !comets[i].lon) continue;
-      let currDistance = distance(
-        currentLocation.lat,
-        currentLocation.lng,
-        comets[i].lat,
-        comets[i].lon,
-      );
-      if (currDistance < dist) {
-        dist = currDistance;
-        closest = comets[i];
-      }
-      setClosestComet(closest);
-      let final = totalVelocity / count;
-      // console.log(final);
-      // console.log(comets.length)
-      setAverageVelocity(final);
-      // console.log(closest);
-    }
-  };
+  // const findClosestComet = () => {
+  //   console.log('RUNNING!')
+  //   let closest = {};
+  //   let dist = Infinity;
+  //   let totalVelocity = 0;
+  //   let count = 0;
+  //   console.log(comets)
+  //   for (let i = 0; i < comets.length; i++) {
+  //     if (comets[i].vel && comets[i].vel !== '-') {
+  //       totalVelocity += Number(comets[i].vel);
+  //       count++;
+  //       // console.log(comets[i].vel)
+  //     }
+  //     if (!comets[i].lat || !comets[i].lon) continue;
+
+  //     comets[i].lat = comets[i].latDir === "N" ? Number(comets[i].lat) : Number(comets[i].lat * -1)
+  //     comets[i].lon = comets[i].lonDir === "E" ? Number(comets[i].lon) : Number(comets[i].lon * -1)
+  //     console.log('lat:', comets[5].lat, comets[7].lat)
+  //     let currDistance = distance(
+  //       +currentLocation.lat,
+  //       +currentLocation.lng,
+  //       comets[i].lat,
+  //       comets[i].lon,
+  //     );
+  //     if (currDistance < dist) {
+  //       console.log(dist)
+  //       dist = currDistance;
+  //       closest = comets[i];
+  //     }
+  //     // console.log(final);
+  //     // console.log(comets.length)
+  //     // console.log(closest);
+  //   }
+  //   setClosestComet(closest)
+  //   let final = totalVelocity / count;
+  //   setAverageVelocity(final);
+  // };
 
   return (
     <>
@@ -86,12 +93,16 @@ export default function Fireballs() {
       </div>
       <Container className='search-location-container'>
       <SearchLocation
-        setCurrentLocation={setCurrentLocation}
+          setCurrentLocation={setCurrentLocation}
+          currentLocation={currentLocation}
         onSubmit={onSubmit}
         setOnSubmit={setOnSubmit}
-        findClosestComet={findClosestComet}
+          // findClosestComet={findClosestComet}
+          setAverageVelocity={setAverageVelocity}
+          setClosestComet={setClosestComet}
+          comets={comets}
       />
-      <LocationMap
+        <LocationMap
         closestComet={closestComet}
         averageVelocity={averageVelocity}
       />

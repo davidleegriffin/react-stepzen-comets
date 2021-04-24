@@ -29,6 +29,7 @@ export default function LocationMap({ averageVelocity, closestComet }) {
       style={cardStyle}
       className="comet__card cards"
     >
+      {console.log(closestComet)}
       <Card.Header>PHEW! What a close call!</Card.Header>
       <LoadScript
         googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
@@ -37,8 +38,8 @@ export default function LocationMap({ averageVelocity, closestComet }) {
           // options={mapOptions}
           mapContainerStyle={containerStyle}
           center={{
-            lat: +closestComet.lat,
-            lng: +closestComet.lon,
+            lat: closestComet.lat,
+            lng: closestComet.lon,
           }}
           zoom={10}
         >
@@ -47,8 +48,8 @@ export default function LocationMap({ averageVelocity, closestComet }) {
               'https://img.icons8.com/offices/30/000000/comet.png'
             }
             position={{
-              lat: +closestComet.lat,
-              lng: +closestComet.lon,
+              lat: closestComet.lat,
+              lng: closestComet.lon,
             }}
           />
         </GoogleMap>

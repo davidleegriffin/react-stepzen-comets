@@ -2,9 +2,16 @@ import { Card, Carousel, Container } from 'react-bootstrap';
 
 import './ImpactEnergy.css'
 
-export default function ImpactEnergy() {
+export default function ImpactEnergy({ closestComet }) {
+  
+  function boxerCalc(energy) {
+    console.log(energy)
+    return Math.round(+energy / 2.3900574e-10).toLocaleString()
+  }
+
   return (
     <Container className="impact-container">
+      <h2>How much energy does this comet produce?</h2>
       <Carousel fade >
       <Carousel.Item interval={2000}>
         <div className="carousel-image-1-holder">
@@ -13,13 +20,12 @@ export default function ImpactEnergy() {
             src="./images/punching_bag_2.gif"
             alt="First slide"
           />
-
         </div>
           <Carousel.Caption>
-            <h3>First slide label</h3>
+            <h3>Professional Boxer (1000 Joules)</h3>
             <p>
-              Nulla vitae elit libero, a pharetra augue mollis
-              interdum.
+              would have to hit a punching bag {boxerCalc(closestComet.impactE)} times to generate
+              the same energy as this fireball.
             </p>
           </Carousel.Caption>
         </Carousel.Item>

@@ -42,7 +42,7 @@ export default function LocationMap({ averageVelocity, closestComet, isLoaded })
             lat: closestComet.lat,
             lng: closestComet.lon,
           }}
-          zoom={10}
+          zoom={7}
         >
           <Marker
             icon={

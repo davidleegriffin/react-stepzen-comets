@@ -91,7 +91,9 @@ export default function Fireballs() {
               closestComet={closestComet}
               averageVelocity={averageVelocity}
             />
-            <ImpactEnergy />
+            <ImpactEnergy
+              closestComet={closestComet}
+            />
           </>
         ) : null}
       </Container>

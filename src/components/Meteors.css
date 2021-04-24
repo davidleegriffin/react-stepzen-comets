@@ -11,8 +11,10 @@
 .comets__loading--text {
     display: flex;
     justify-content: center;
+    align-items: center;
     color: white;
     font-size: 100px;
+    margin-top: 60%;
     animation-name: grow-item;
     animation-duration: 2s;
 }

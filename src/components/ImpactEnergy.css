@@ -1,0 +1,46 @@
+.carousel {
+  width:600px;
+  height:400px;
+  margin: auto;
+}
+
+.carousel-image-1-holder{
+  width: 600px;
+  height: 400px;
+  background-color: rgb(247, 174, 38);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image-1{
+  background-color: rgb(247, 174, 38);
+  width: 450px;
+  height: 400px;
+}
+
+.carousel-image-2-holder{
+  width: 600px;
+  height: 400px;
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image-2, .carousel-image-3{
+  width: 300px;
+  height: 300px;
+}
+
+.carousel-image-3-holder{
+  width: 600px;
+  height: 400px;
+  background-color: rgb(255, 145, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

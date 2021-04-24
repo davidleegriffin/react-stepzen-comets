@@ -14,7 +14,6 @@ export default function SearchLocation({
   currentLocation,
   onSubmit,
   setOnSubmit,
-  // findClosestComet,
   setAverageVelocity,
   setClosestComet,
   comets,

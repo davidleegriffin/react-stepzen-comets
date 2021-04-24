@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { GET_COMETS_QUERY } from '../queries/getComets.js';
+import { GET_METEORS_QUERY } from '../queries/getMeteors.js';
 import {Container} from 'react-bootstrap'
 
 import SearchLocation from '../components/SearchLocation';
@@ -20,7 +20,7 @@ export default function Fireballs() {
   const [closestComet, setClosestComet] = useState(null);
   const [comets, setComets] = useState([]);
   const [averageVelocity, setAverageVelocity] = useState(0);
-  const { data, loading, error } = useQuery(GET_COMETS_QUERY);
+  const { data, loading, error } = useQuery(GET_METEORS_QUERY);
 
   useEffect(() => {
     if (loading === false && data) {

@@ -28,7 +28,7 @@ export default function WelcomePage() {
             <NavLink to={{pathname: "/fireballs"}}>
                 <button className="fireballs__button--home">CLICK HERE TO START</button>
             </NavLink>
-            <Footer />
+            
         </div>
     </>
   )

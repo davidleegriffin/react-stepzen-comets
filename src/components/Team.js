@@ -13,7 +13,7 @@ const Team = () => {
                 Members come for the hackathons. (of course 🎉)
                 But they stay for the community. 😊 
             </p>
-            <a href="https://mintbean.io/about-us">
+            <a href="https://mintbean.io/about-us" target="_blank" rel="noreferrer">
                 <button className="team__button--mintbean">
                     <img src="./images/mintbean.svg" alt="mintbean button" width="200px"></img>
                 </button>

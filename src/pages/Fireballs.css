@@ -3,6 +3,28 @@
   src: url('Blazed.ttf');
 }
 
+.vl {
+  position: absolute;
+  top: 130%;
+  --angle: 0deg;
+  height: 900px;
+  border-left: 10px solid;
+  border-image: conic-gradient(from var(--angle), rgb(255, 60, 0), rgb(255, 94, 0), orange, rgb(247, 174, 38), rgb(247, 174, 38), rgb(255, 208, 0), rgb(247, 174, 38), rgb(247, 174, 38), orange, rgb(255, 94, 0)) 1;
+  animation: 15s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 body{
   height: auto;
   background-position-x: center;
@@ -116,7 +138,7 @@ body{
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-
+/* 
 @keyframes masked-animation {
   0% {
     background-position: 0 0;
@@ -124,7 +146,7 @@ body{
   100% {
     background-position: -8000px -3000px;
   }
-}
+} */
 
 .search-location-container{
   width: 100vw;
@@ -132,4 +154,10 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-height: 576px) {  
+.vl {
+  top: 150%;
+}
 }

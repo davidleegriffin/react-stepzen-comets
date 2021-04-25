@@ -82,6 +82,7 @@ export default function Fireballs() {
         />
         {averageVelocity ? (
           <>
+            <div class="vl"></div>
             <LocationMap
               closestComet={closestComet}
               isLoaded={isLoaded}

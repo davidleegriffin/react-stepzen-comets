@@ -39,9 +39,8 @@ export default function SpeedComparison({
   return (
     <>
       <Card bg="warning" style={card2Style} className="cards">
-        <Card.Header>
-          Compare this comets speed to the fastest man alive and the
-          fastest car!
+        <Card.Header style={{ textAlign: 'center', fontWeight: 'bold' }}>
+          Compare this comets speed to the fastest man and car!
         </Card.Header>
         <Card.Body style={cardSpeed}>
           <OverlayTrigger

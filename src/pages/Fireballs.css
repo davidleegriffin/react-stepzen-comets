@@ -3,13 +3,6 @@
   src: url('Blazed.ttf');
 }
 
-/* .vl {
-  position: absolute;
-  border-left: 6px solid linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  top: 130%;
-  height: 800px;
-} */
-
 .vl {
   position: absolute;
   top: 130%;

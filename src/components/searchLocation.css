@@ -11,4 +11,13 @@
 
 .form-container-text{
   align-self: flex-start;
+  padding: 5px 12px;
+  margin-bottom: 0px;
+  background-color: #ffc107;
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+}
+
+#formBasicEmail{
+  border-radius: 0 0 4px 4px;
 }

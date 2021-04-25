@@ -100,13 +100,14 @@ export default function SearchLocation({
         controlId="formBasicEmail"
         className="form-container"
       >
-        <Form.Label className="form-container-text">
+        <Form.Label style={{ textAlign: 'center', fontWeight: 'bold' }} className="form-container-text">
           Enter a location below
         </Form.Label>
         <Form.Control
           style={{ width: '508px', marginBottom: '5px' }}
           type="input"
           placeholder="Address"
+          id="formBasicEmail"
           value={sendAddress}
           onChange={(e) => setSendAddress(e.target.value)}
         />

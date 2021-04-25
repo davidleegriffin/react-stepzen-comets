@@ -88,18 +88,14 @@
 }
 
 .team__button--home {
-    /* background-image: url("https://images.unsplash.com/photo-1464802686167-b939a6910659?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1033&q=80"); */
-    background-color: black;
     border-radius: 15px;
-    font-family: 'Blazed';
-    font-size: xxx-large;
-    color: red;
-    text-shadow: -10px 0px 0px rgba(255, 255, 0, 0.7);
-    -webkit-text-stroke-width: .7px;
-    -webkit-text-stroke-color: black;
-    height: 150px;
-    width: 500px;
-    margin-bottom: 60px;
+    font-size: 30px;
+    height: 100px;
+    width: 400px;
+    /* margin-left: 30%; */
+    margin-top: 0;
+    margin-bottom: 80px;
+    box-shadow: 6px 6px 12px rgba(94,244,214, 0.75);
 }
 
 .team__shields--header {

@@ -65,7 +65,7 @@ const Team = () => {
             <img className="team__shields--img" src="https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=CSS3&logoColor=white&color=ff0000" alt="css-shield" width="150px" height="37px"></img>
         </div>
         <NavLink to={{pathname: "/fireballs"}}>
-            <button className="team__button--home">CLICK HERE</button>
+            <button className="team__button--home">CLICK HERE TO START</button>
         </NavLink>
     </div>
 

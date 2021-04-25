@@ -33,7 +33,7 @@ export default function LocationMap({
     >
       {isLoaded ? (
         <>
-          <Card.Header>PHEW! What a close call!</Card.Header>
+          <Card.Header>Comet Location: (PHEW that was close!) </Card.Header>
           <LoadScript
             googleMapsApiKey={
               process.env.REACT_APP_GOOGLE_MAPS_API_KEY

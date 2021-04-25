@@ -14,7 +14,7 @@ export default function WelcomePage() {
     <>
         <div className="fireballs__container--main">
             <h1>WELCOME TO FIREBALLS</h1>
-            <p classname="fireballs__image--example"><img src="./images/fireballs-screen-shot.png" alt="fireballs-screen-shot" width="90%"></img></p>
+            <p classname="fireballs__image--example"><img src="./images/fireballs-screen-shot.gif" alt="fireballs-screen-shot" width="90%"></img></p>
             <div>
                 <p className="fireballs__explainer">
                     This site is dedicated to tracking meteors using NASA's JPL Fireballs API to generate an array of Meteor objects. 

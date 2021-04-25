@@ -1,9 +1,17 @@
-import {useRef} from 'react'
-import { Card, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useRef } from 'react';
+import {
+  Card,
+  Button,
+  OverlayTrigger,
+  Tooltip,
+} from 'react-bootstrap';
 
-import "./SpeedComparison.css"
+import './SpeedComparison.css';
 
-export default function SpeedComparison({ averageVelocity, closestComet }) {
+export default function SpeedComparison({
+  averageVelocity,
+  closestComet,
+}) {
   const cometRef = useRef(null);
 
   const card2Style = {

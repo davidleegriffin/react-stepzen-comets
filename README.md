@@ -51,6 +51,7 @@ Things learned while we worked on react-stepzen-comets:
 ```
 fix UX/UI on homepage following kanban guide
 ```
+fix issues
 
 
 ### [Technology Shields]:
